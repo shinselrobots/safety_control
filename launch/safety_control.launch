@@ -1,0 +1,46 @@
+<launch>
+  <node pkg="safety_control" type="safety_control_node" name="safety_control_node" output="screen">
+    <remap from="cmd_vel" to="cmd_vel_mux/safety_control"/> 
+
+    <param name="front_zone_cliff_adder" value="0.4"/>
+
+    <!-- Example Settable Parameters (tune for your robot) -->
+    <!-- 
+    <param name="target_frame" value="base_link"/>
+    <param name="transform_tolerance" value="0.01"/>
+
+    <param name="robot_length" value="0.4"/>
+    <param name="robot_width" value="0.4"/>
+    <param name="front_zone_range_min" value="0.2"/>
+    <param name="front_zone_range_speed_scaler" value="0.2"/>
+    <param name="front_zone_cliff_adder" value="0.2"/>
+    <param name="front_zone_width" value="(see code)"/>
+
+    <param name="side_zone_range" value="0.05"/>
+    <param name="front_side_zone_width" value="(see code)"/>
+
+    <param name="rear_zone_range_min" value="0.1"/>
+    <param name="rear_zone_range_speed_scaler" value="0.2"/>
+    <param name="rear_zone_cliff_adder" value="0.2"/>
+    <param name="rear_zone_width" value="(see code)"/>
+
+    <param name="avoid_turn_amount" value="0.8"/>
+
+    <param name="object_min_height" value="0.0508"/>
+    <param name="object_max_height" value="1.0"/>
+    <param name="cliff_min_height" value="-0.0508"/>
+    <param name="cliff_max_height" value="-1.0"/>
+    -->
+ 
+    <!-- Example Sensor Thresholds (tune for your sensors) -->
+    <!-- 
+    <param name="lidar_confidence_threshold" value="4"/>
+    <param name="depth_camera_confidence_threshold" value="50"/>
+    <param name="cliff_confidence_threshold" value="150"/>
+    <param name="overall_confidence_threshold" value="4"/>
+    -->
+
+  </node>
+
+</launch>
+

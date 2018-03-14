@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="safety_control" type="safety_control_node" name="safety_control_node" output="screen" launch-prefix="xterm -e gdb --args">
+    <remap from="cmd_vel" to="cmd_vel_mux/safety_control"/> 
+  </node>
+</launch>
+
