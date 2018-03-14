@@ -9,6 +9,8 @@
    - Tune how long the robot stays stopped by modifying "timeout" in param/cmd_vel_mux.yaml
    - Make sure you remap /cmd_vel in your launch file
    - Tune for robot using parameters shown in the launch file.
+   - To view model in RVIZ, add topic "safety_control/zone_marker".  This will display a marker 
+     whenever an object is in one of the robot's danger zones
 
 # Prerequisites
    (there may be a better way to add these packages...?)
