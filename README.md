@@ -12,7 +12,15 @@
 
 # Prerequisites
    (there may be a better way to add these packages...?)
-   - sudo apt -y install ros-kinetic-tf
-   - sudo apt -y install ros-kinetic-tf2-sensor-msgs
-   - Optional, if using pointcloud laserscan option: 
-     sudo apt-get install ros-kinetic-pointcloud-to-laserscan
+   - modify "cmd_vel_mux.yaml" to add this safety controller:
+        name:        "Safety Control"
+        topic:       "safety_control"
+        timeout:     1.0
+        priority:    5
+
+   - Install required packages:
+         sudo apt -y install ros-kinetic-tf
+         sudo apt -y install ros-kinetic-tf2-sensor-msgs
+       Optional, if using pointcloud laserscan option: 
+         sudo apt-get install ros-kinetic-pointcloud-to-laserscan
+
