@@ -10,5 +10,9 @@
    - Make sure you remap /cmd_vel in your launch file
    - Tune for robot using parameters shown in the launch file.
 
-
-
+# Prerequisites
+   (there may be a better way to add these packages...?)
+   - sudo apt -y install ros-kinetic-tf
+   - sudo apt -y install ros-kinetic-tf2-sensor-msgs
+   - Optional, if using pointcloud laserscan option: 
+     sudo apt-get install ros-kinetic-pointcloud-to-laserscan
