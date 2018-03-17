@@ -550,6 +550,8 @@ void SafetyControl::frontDepthCloudCallback(const sensor_msgs::PointCloud2ConstP
   int total_points_found = 0;
   int points_in_boundry = 0;
   int cliff_points_found = 0;
+  double dbg_total_to_average = 0.0;
+
   // clear prior readings
   sensor_summary_.ClearSensorReadings(FRONT_DEPTH_CAMERA); 
   sensor_summary_.ClearSensorReadings(FRONT_CLIFF); 
@@ -561,7 +563,6 @@ void SafetyControl::frontDepthCloudCallback(const sensor_msgs::PointCloud2ConstP
             ++iter_x, ++iter_y, ++iter_z)
   {
 
-    total_points_found++;
 
     // Discard any NAN points
     if (std::isnan(*iter_x) || std::isnan(*iter_y) || std::isnan(*iter_z))
@@ -569,6 +570,9 @@ void SafetyControl::frontDepthCloudCallback(const sensor_msgs::PointCloud2ConstP
       // ROS_INFO("rejected for nan in point(%f, %f, %f)\n", *iter_x, *iter_y, *iter_z);
       continue;
     }
+    total_points_found++;
+    dbg_total_to_average += *iter_z;
+
 
     // look for objects and cliffs
     // Test height of each point, reject those too high or too low
@@ -588,6 +592,12 @@ void SafetyControl::frontDepthCloudCallback(const sensor_msgs::PointCloud2ConstP
       points_in_boundry++;
       UpdateZonesWithSensor(FRONT_DEPTH_CAMERA, *iter_x, *iter_y, *iter_z);
     }
+  }
+
+  if( total_points_found != 0 )
+  {
+  	 double dbg_average = dbg_total_to_average/total_points_found;
+     ROS_INFO(">>> total points found = %d,  averageZ = %f", total_points_found, dbg_average );
   }
 
   //ROS_INFO("DEPTH CLOUD: total points found = %d,  in boundry = %d", total_points_found, points_in_boundry);

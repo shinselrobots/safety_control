@@ -1,6 +1,13 @@
+<!-- Safety Control example launch file 
+     copy to your robot launch file, and modify as needed
+-->
+
 <launch>
   <node pkg="safety_control" type="safety_control_node" name="safety_control_node" output="screen">
-    <remap from="cmd_vel" to="cmd_vel_mux/safety_control"/> 
+
+     <!-- Remap output to appropriate input for robot base -->
+     <remap from="cmd_vel" to="cmd_vel_mux/safety_control"/>      <!-- Turtlebot Example-->
+     <!-- <remap from="cmd_vel" to="move_base/priority3"/>  -->   <!-- Sheldon Example -->
 
     <param name="front_zone_cliff_adder" value="0.4"/>
 
