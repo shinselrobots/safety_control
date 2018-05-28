@@ -39,9 +39,8 @@
 //#include <pcl/filters/voxel_grid.h> // for testing only
 #include <sensor_msgs/point_cloud2_iterator.h>
 #include <tf2_sensor_msgs/tf2_sensor_msgs.h>
+// NOTE: you must install TF2 Sensor Messages: sudo apt-get install ros-kinetic-tf2-sensor-msgs
 
-
-//#include <sensor_msgs/Joy.h>
 //#include <trajectory_msgs/JointTrajectory.h>
 
 // ROS REP103: "By the right hand rule, the yaw component of orientation increases 
