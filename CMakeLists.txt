@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   laser_geometry
   message_generation
+  visualization_msgs
 )
 
 find_package(Boost REQUIRED COMPONENTS system)
