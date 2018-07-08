@@ -1,5 +1,8 @@
 # Safety_control
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build Status](https://travis-ci.org/shinselrobots/safety_control.svg?branch=master)](https://travis-ci.org/shinselrobots/safety_control)
+
 # Info
    This node provides basic collision / cliff detection and prevention
    To simplify behavior, potential collisions are detected by "zones" around the robot
@@ -21,8 +24,9 @@
         priority:    5
 
    - Install required packages:
-         sudo apt -y install ros-kinetic-tf
-         sudo apt -y install ros-kinetic-tf2-sensor-msgs
-       Optional, if using pointcloud laserscan option: 
-         sudo apt-get install ros-kinetic-pointcloud-to-laserscan
+Use the following command to install the required build and runtime dependencies:
+```bash
+cd <catkin workspace>
+rosdep install --from-paths `pwd`/src --ignore-src --rosdistro=kinetic -y
+```
 
